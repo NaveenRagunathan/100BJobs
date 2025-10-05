@@ -109,7 +109,7 @@ function extractExperience(candidate: RawCandidate, schema: DetectedSchema): {
         startDate: exp.start_date || exp.from || exp.startDate,
         endDate: exp.end_date || exp.to || exp.endDate || 'Present',
         technologies: Array.isArray(exp.technologies) ? exp.technologies : 
-                     typeof exp.technologies === 'string' ? exp.technologies.split(',').map(t => t.trim()) : []
+                     typeof exp.technologies === 'string' ? exp.technologies.split(',').map((t: string) => t.trim()) : []
       };
       experience.push(item);
 
